@@ -14,4 +14,4 @@ userRouter.post(
   userControllers.create
 );
 userRouter.post("/login", userControllers.login);
-userRouter.get("/", ValidateToken.execute, userControllers.getUser);
+// userRouter.get("/", ValidateToken.execute, userControllers.getUser);
