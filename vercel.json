@@ -3,12 +3,12 @@
   "builds": [
     {
       "src": "./app.js",
-      "use": "@vercel/node"
+      "use": "vercel-sapper"
     }
   ],
   "routes": [
     {
-      "src": "(.*)",
+      "src": "package.json",
       "dest": "app.js"
     }
   ]
