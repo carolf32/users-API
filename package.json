@@ -196,6 +196,9 @@
     "yocto-queue": "^0.1.0",
     "zod": "^3.23.8"
   },
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "start": "node dist/server.js",
     "build": "npx tsc",
