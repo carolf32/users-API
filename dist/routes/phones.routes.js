@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.phoneRouter = void 0;
+const express_1 = require("express");
+const phones_controller_1 = require("../controllers/phones.controller");
+const validateBody_middleware_1 = require("../middlewares/validateBody.middleware");
+const phones_schema_1 = require("../schemas/phones.schema");
+const isIdValid_middleware_1 = require("../middlewares/isIdValid.middleware");
+const validateToken_middleware_1 = require("../middlewares/validateToken.middleware");
+exports.phoneRouter = (0, express_1.Router)();
+const phoneControllers = new phones_controller_1.PhoneControllers();
+exports.phoneRouter.post("/", validateToken_middleware_1.ValidateToken.execute, validateBody_middleware_1.ValidateBody.execute(phones_schema_1.phoneCreateSchema), phoneControllers.create);
+exports.phoneRouter.get("/", phoneControllers.findMany);
+exports.phoneRouter.get("/:id", isIdValid_middleware_1.IsIdValid.execute, phoneControllers.findMany);
+exports.phoneRouter.patch("/:id", validateToken_middleware_1.ValidateToken.execute, validateBody_middleware_1.ValidateBody.execute(phones_schema_1.phoneUpdateSchema), isIdValid_middleware_1.IsIdValid.execute, phoneControllers.update);
+exports.phoneRouter.delete("/:id", validateToken_middleware_1.ValidateToken.execute, isIdValid_middleware_1.IsIdValid.execute, phoneControllers.remove);
