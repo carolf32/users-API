@@ -16,7 +16,7 @@ exports.UserServices = void 0;
 const prisma_1 = require("../database/prisma");
 const appError_1 = require("../errors/appError");
 const users_schema_1 = require("../schemas/users.schema");
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 class UserServices {
     create(body) {
@@ -27,7 +27,7 @@ class UserServices {
             if (existingUser) {
                 throw new appError_1.appError(404, "User already exists");
             }
-            const hashPassword = yield bcrypt_1.default.hash(body.password, 10);
+            const hashPassword = yield bcryptjs_1.default.hash(body.password, 10);
             const newUser = Object.assign(Object.assign({}, body), { password: hashPassword, role: body.role || "User" });
             const data = yield prisma_1.prisma.user.create({ data: newUser });
             return users_schema_1.userReturnSchema.parse(data);
@@ -41,7 +41,7 @@ class UserServices {
             if (!data) {
                 throw new appError_1.appError(404, "User not registered");
             }
-            const compare = yield bcrypt_1.default.compare(body.password, data.password);
+            const compare = yield bcryptjs_1.default.compare(body.password, data.password);
             if (!compare) {
                 throw new appError_1.appError(404, "Email and password doesn't match");
             }
