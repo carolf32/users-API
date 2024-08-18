@@ -15,7 +15,7 @@
     "array-flatten": "^1.1.1",
     "array-union": "^2.1.0",
     "balanced-match": "^1.0.2",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "brace-expansion": "^1.1.11",
     "braces": "^3.0.3",
@@ -212,6 +212,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",

@@ -5,7 +5,7 @@ import {
   TUserLogin,
   userReturnSchema,
 } from "../schemas/users.schema";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export class UserServices {
