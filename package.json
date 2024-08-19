@@ -201,8 +201,8 @@
   },
   "scripts": {
     "start": "node dist/server.js",
-    "build": "npx tsc",
-    "vercel-build": "npm run build && npx prisma migrate deploy",
+    "build": "chmod +x ./node_modules/.bin/prisma && npx prisma generate && npx tsc",
+    "migrate:deploy": "npm run build && npx prisma migrate deploy",
     "dev": "tsnd --respawn src/server.ts",
     "migrate:dev": "npx prisma migrate dev",
     "studio:dev": "npx prisma studio"
