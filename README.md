@@ -9,8 +9,6 @@ Each User contains:
 |email|string|
 |name|string|
 |role|enum|
-|address|string|
-|contact|number|
 |createdAt|date|
 
 Each product contains:
