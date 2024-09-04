@@ -6,8 +6,6 @@ export const userSchema = z.object({
   password: z.string().min(4),
   name: z.string(),
   role: z.enum(["User", "Employee"]),
-  address: z.string(),
-  contact: z.number(),
   createdAt: z.date(),
 });
 

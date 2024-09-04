@@ -19,8 +19,6 @@ model User {
   password String
   name String
   role Role 
-  address String
-  contact Int
   createdAt DateTime @default(now())
 }
 
