@@ -16,8 +16,11 @@ export class PhoneControllers {
   }
   async findMany(req: Request, res: Response) {
     const phoneServices = new PhoneServices();
+    const category = req.query.category as string;
 
-    const response = await phoneServices.findMany();
+    const response = category
+      ? await phoneServices.findManyByCategory(category)
+      : await phoneServices.findMany();
     return res.status(200).json(response);
   }
   async update(req: Request, res: Response) {

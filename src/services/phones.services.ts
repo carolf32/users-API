@@ -14,6 +14,12 @@ export class PhoneServices {
     const data = await prisma.product.findMany();
     return data;
   }
+  async findManyByCategory(category: string) {
+    const data = await prisma.product.findMany({
+      where: { category: category },
+    });
+    return data;
+  }
   async update(id: number, body: TPhoneUpdate) {
     const data = await prisma.product.update({ where: { id }, data: body });
     return data;
