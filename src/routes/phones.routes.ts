@@ -16,7 +16,7 @@ phoneRouter.post(
   phoneControllers.create
 );
 phoneRouter.get("/", phoneControllers.findMany);
-phoneRouter.get("/:id", IsIdValid.execute, phoneControllers.findMany);
+phoneRouter.get("/:id", IsIdValid.execute, phoneControllers.findOne);
 phoneRouter.patch(
   "/:id",
   ValidateToken.execute,
