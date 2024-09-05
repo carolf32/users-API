@@ -47,8 +47,6 @@ And there are 2 possible roles: User(default)/Employee
 	"email": "johndoe@mail.com",
 	"password": "ab22",
 	"name": "John Doe",
-	"address": "address",
-	"contact": 1234567
 }
 ```
 #### Response template (STATUS CODE 201)
@@ -56,8 +54,6 @@ And there are 2 possible roles: User(default)/Employee
 {
 	"email": "johndoe@mail.com",
 	"name": "John Doe",
-	"address": "address",
-	"contact": 1234567
 }
 ```
 #### Possible error (STATUS CODE 403)
@@ -66,12 +62,12 @@ And there are 2 possible roles: User(default)/Employee
 	"issues": [
 		{
 			"code": "invalid_type",
-			"expected": "number",
-			"received": "string",
+			"expected": "string",
+			"received": "number",
 			"path": [
-				"contact"
+				"name"
 			],
-			"message": "Expected number, received string"
+			"message": "Expected string, received number"
 		}
 	],
 	"name": "ZodError"
@@ -99,8 +95,6 @@ And there are 2 possible roles: User(default)/Employee
 	"user": {
 		"email": "johndoe@mail.com",
 		"name": "John Doe",
-		"address": "address",
-		"contact": 1234567
 	}
 }
 ```
