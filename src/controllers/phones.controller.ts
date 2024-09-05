@@ -17,10 +17,16 @@ export class PhoneControllers {
   async findMany(req: Request, res: Response) {
     const phoneServices = new PhoneServices();
     const category = req.query.category as string;
+    const search = req.query.search as string;
+    const sortBy = req.query.sortBy as string;
+    const order = req.query.order as string;
 
-    const response = category
-      ? await phoneServices.findManyByCategory(category)
-      : await phoneServices.findMany();
+    const response = await phoneServices.findMany({
+      category,
+      search,
+      sortBy,
+      order,
+    });
     return res.status(200).json(response);
   }
   async update(req: Request, res: Response) {
