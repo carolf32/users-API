@@ -7,6 +7,7 @@ export const phoneSchema = z.object({
   price: z.number().positive(),
   stock: z.number(),
   category: z.string(),
+  images: z.array(z.string()).optional(),
   createdAt: z.date(),
 });
 
