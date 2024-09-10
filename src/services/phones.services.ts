@@ -10,16 +10,21 @@ export class PhoneServices {
     const data = await prisma.product.findUnique({ where: { id } });
     return data;
   }
-  async findMany() {
-    const data = await prisma.product.findMany();
+  async findMany(category?: string, searchQuery?: string) {
+    const filters: any = {};
+
+    if (category) {
+      filters.category = category;
+    }
+
+    if (searchQuery) {
+      filters.name = { contains: searchQuery, mode: "insensitive" };
+    }
+
+    const data = await prisma.product.findMany({ where: filters });
     return data;
   }
-  async findManyByCategory(category: string) {
-    const data = await prisma.product.findMany({
-      where: { category: category },
-    });
-    return data;
-  }
+
   async update(id: number, body: TPhoneUpdate) {
     const data = await prisma.product.update({ where: { id }, data: body });
     return data;
