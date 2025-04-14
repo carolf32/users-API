@@ -20,6 +20,7 @@ Each product contains:
 |price|number|
 |stock|number|
 |category|string|
+|images|string[]|
 |createdAt|date|
 
 And there are 2 possible roles: User(default)/Employee
@@ -114,23 +115,27 @@ And there are 2 possible roles: User(default)/Employee
 #### Request template
 ```
 	{
-		"name":"fone1",
-		"description":"description1",
-		"price":123,
-		"stock":2,
-		"category":"headphones"
+		"name":"Premium Audio Cable",
+		"description":"High-quality audio cable for enhancing sound transmission and durability.",
+		"price":18.99,
+		"stock":41,
+		"images":["https://img.freepik.com/free-photo"],
+		"category":"acessories"
 	}
 ```
 #### Response template (STATUS CODE 201)
 ```
 {
-	"id": 4,
-	"name": "fone1",
-	"description": "description1",
-	"price": 123,
-	"stock": 2,
-	"category": "headphones",
-	"createdAt": "2024-08-18T15:45:49.720Z"
+	"id": 37,
+	"name": "Premium Audio Cable",
+	"description": "High-quality audio cable for enhancing sound transmission and durability.",
+	"price": 18.99,
+	"stock": 41,
+	"category": "acessories",
+	"images": [
+		"https://img.freepik.com/free-photo/guitar-audio-jack_14"
+	],
+	"createdAt": "2024-09-10T15:53:15.027Z"
 }
 ```
 #### Possible error (STATUS CODE 403)
@@ -150,14 +155,17 @@ And there are 2 possible roles: User(default)/Employee
 ```
 [
   {
-  	"id": 4,
-  	"name": "fone1",
-  	"description": "description1",
-  	"price": 123,
-  	"stock": 2,
-  	"category": "headphones",
-  	"createdAt": "2024-08-18T15:45:49.720Z"
-  }
+	"id": 37,
+	"name": "Premium Audio Cable",
+	"description": "High-quality audio cable for enhancing sound transmission and durability.",
+	"price": 18.99,
+	"stock": 41,
+	"category": "acessories",
+	"images": [
+		"https://img.freepik.com/free-photo/guitar-audio-jack_14"
+	],
+	"createdAt": "2024-09-10T15:53:15.027Z"
+}
 ]
 ```
 
@@ -165,13 +173,16 @@ And there are 2 possible roles: User(default)/Employee
 #### Response template (STATUS CODE 201)
 ```
 {
-	"id": 4,
-	"name": "fone1",
-	"description": "description1",
-	"price": 123,
-	"stock": 2,
-	"category": "headphones",
-	"createdAt": "2024-08-18T15:45:49.720Z"
+	"id": 37,
+	"name": "Premium Audio Cable",
+	"description": "High-quality audio cable for enhancing sound transmission and durability.",
+	"price": 18.99,
+	"stock": 41,
+	"category": "acessories",
+	"images": [
+		"https://img.freepik.com/free-photo/guitar-audio-jack_14"
+	],
+	"createdAt": "2024-09-10T15:53:15.027Z"
 }
 ```
 #### Possible error (STATUS CODE 404)
@@ -193,13 +204,16 @@ All keys optional
 #### Response template (STATUS CODE 201)
 ```
 {
-	"id": 4,
-	"name": "fone1",
-	"description": "description1",
-	"price": 123,
+	"id": 37,
+	"name": "Premium Audio Cable",
+	"description": "High-quality audio cable for enhancing sound transmission and durability.",
+	"price": 18.99,
 	"stock": 12,
-	"category": "headphones",
-	"createdAt": "2024-08-18T15:45:49.720Z"
+	"category": "acessories",
+	"images": [
+		"https://img.freepik.com/free-photo/guitar-audio-jack_14"
+	],
+	"createdAt": "2024-09-10T15:53:15.027Z"
 }
 ```
 #### Possible error (STATUS CODE 404)
